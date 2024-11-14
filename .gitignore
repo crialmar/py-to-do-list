@@ -1,0 +1,20 @@
+# Entorno virtual
+venv/
+.venv/
+env/
+.env/
+*.env
+
+# Archivos y carpetas de Django
+*.pyc
+__pycache__/
+db.sqlite3  # Si usas una base de datos SQLite
+media/
+static/
+*.log
+
+# Archivos de configuración específicos
+*.DS_Store
+.idea/
+.vscode/
+*.bak
