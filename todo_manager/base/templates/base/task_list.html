@@ -1,13 +1,27 @@
-<h1>TO DO LIST</h1>
+{% if request.user.is_authenticated %}
+<p>{{ request.user }}</p>
+<a href="{% url 'logout' %}">Log out</a>
+{% else %}
+<a href="{% url 'login' %}">Log in</a>
+{% endif %}
+<hr />
+
+<h1>TO DO LIST PYTHON EDITION</h1>
+<a href="{% url 'create-task' %}">Create to do</a>
 <table>
   <tr>
     <th>TASK</th>
+    <th></th>
+    <th></th>
   </tr>
 
-  {% for task in todo %}
+  {% for task in todos %}
 
   <tr>
     <td>{{task.title}}</td>
+    <td><a href="{% url 'task' task.id %}"> Details </a></td>
+    <td><a href="{% url 'edit-task' task.id %}"> 🖌️ </a></td>
+    <td><a href="{% url 'delete-task' task.id %}"> ❌ </a></td>
   </tr>
 
   {% empty %}
