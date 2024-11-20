@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>To do list</title>
+    <link
+      rel="icon"
+      href="https://res.cloudinary.com/dm8swv5zy/image/upload/v1732134640/oms3uplrai2ndcrfzqni.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Raleway", serif;
+        background-image: linear-gradient(180deg, #854bb8 10%, #341847 90%);
+        /* background-color: rgb(60, 30, 117);
+              opacity: 1;
+              background-image: radial-gradient(
+                  rgb(242, 242, 242) 2px,
+                  transparent 2px
+                ),
+                radial-gradient(rgb(242, 242, 242) 2px, rgb(60, 30, 117) 2px);
+              background-size: 58px 58px;
+              background-position: 0px 0px, 29px 29px; */
+        min-width: 320px;
+        min-height: 100vh;
+
+        .create_task {
+          align-items: center;
+          background-color: transparent;
+          color: #1e0a20;
+          cursor: pointer;
+          display: flex;
+          font-size: 1rem;
+          font-weight: 800;
+          line-height: 1.5;
+          text-decoration: none;
+          text-transform: uppercase;
+          outline: 0;
+          border: 0;
+          padding: 10px 40px 10px 20px;
+        }
+
+        .create_task:before {
+          background-color: #000000;
+          content: "";
+          display: inline-block;
+          height: 1px;
+          margin-right: 10px;
+          transition: all 0.42s cubic-bezier(0.25, 0.8, 0.25, 1);
+          width: 0;
+        }
+
+        .create_task:hover:before {
+          background-color: #000000;
+          width: 3rem;
+        }
+
+        .search {
+          border: 2px solid transparent;
+          padding-left: 0.8em;
+          outline: none;
+          overflow: hidden;
+          background-color: #f3f3f3;
+          border-radius: 10px;
+          transition: all 0.5s;
+        }
+
+        input {
+          margin: 20px 0 20px 0;
+          padding: 5px;
+          border-radius: 5px;
+        }
+
+        td {
+          padding: 5px;
+        }
+
+        .header_user {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 10px 50px;
+          .name_user {
+            font-size: large;
+            font-weight: bold;
+            color: #ffffffd3;
+            letter-spacing: 4px;
+            z-index: 1;
+          }
+        }
+
+        .container_content {
+          width: 600px;
+          padding: 10px 0px 15px 0px;
+          margin: 30px 0px;
+          place-items: center;
+          place-self: center;
+          /* min-width: 320px;
+                min-height: 100vh; */
+          border-radius: 15px;
+          background: rgba(255, 255, 255, 0.3);
+          -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+          border: 1.5px solid rgba(209, 213, 219, 0.3);
+
+          /* From Uiverse.io by portseif */
+
+          .search:hover,
+          .search:focus {
+            border: 2px solid #ec4ade;
+            box-shadow: 0px 0px 0px 7px rgba(236, 74, 225, 0.2);
+            background-color: white;
+          }
+          .search::placeholder {
+            font-family: "Raleway";
+            font-size: smaller;
+          }
+
+          .bottone5 {
+            align-items: center;
+            background-color: #f3f3f3;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+            box-sizing: border-box;
+            color: rgba(0, 0, 0, 0.85);
+            cursor: pointer;
+            display: inline-flex;
+            padding: 6.5px;
+            justify-content: center;
+            line-height: 1.25;
+            transition: all 250ms;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            vertical-align: baseline;
+            max-height: 10%;
+            width: auto;
+          }
+
+          .bottone5:hover,
+          .bottone5:focus {
+            border: 1px solid #ec4ade;
+            box-shadow: 0px 0px 0px 7px rgba(236, 74, 225, 0.2);
+            background-color: white;
+          }
+
+          .bottone5:hover {
+            transform: translateY(-1px);
+          }
+
+          .bottone5:active {
+            background-color: #f0f0f198;
+            border: 2px solid #ec4ade;
+            box-shadow: 0px 0px 0px 7px rgba(236, 74, 225, 0.2);
+            background-color: white;
+            transform: translateY(0);
+          }
+        }
+
+        /* .container::-webkit-scrollbar {
+          width: 10px;
+        }
+
+        .container::-webkit-scrollbar-thumb {
+          background: #88888886;
+        }
+
+        .container::-webkit-scrollbar-track {
+          background: linear-gradient(180deg, #1e3c72 10%, #2a5298 90%);
+        } */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">{% block content %} {% endblock content %}</div>
+  </body>
+</html>

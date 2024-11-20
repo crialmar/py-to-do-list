@@ -1,6 +1,11 @@
-<h1>CREATE TO DO</h1>
-<a href="{% url 'pending' %}">Home</a>
-<form method="post" action="">
-  {% csrf_token %} {{form.as_p}}
-  <input type="submit" value="Send" />
-</form>
+{% extends 'base/principal.html' %} {% block content %}
+<div class="container_content">
+  <h1>CREATE TO DO</h1>
+  <a href="{% url 'pending' %}">Home</a>
+  <form method="post" action="">
+    {% csrf_token %} {{form.as_p}}
+    <input type="submit" value="Send" />
+  </form>
+</div>
+
+{% endblock content %}

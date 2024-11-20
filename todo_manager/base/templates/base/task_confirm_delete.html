@@ -1,3 +1,5 @@
+{% extends 'base/principal.html' %} {% block content %}
+
 <a href="{% url 'pending' %}">Home</a>
 
 <form method="post">
@@ -5,3 +7,4 @@
   <p>Do you want delete the task "{{todo}}"?</p>
   <input type="submit" value="Delete" />
 </form>
+{% endblock content %}

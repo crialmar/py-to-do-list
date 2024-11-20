@@ -1,31 +1,56 @@
-{% if request.user.is_authenticated %}
-<p>{{ request.user }}</p>
-<a href="{% url 'logout' %}">Log out</a>
-{% else %}
-<a href="{% url 'login' %}">Log in</a>
-{% endif %}
-<hr />
+{% extends 'base/principal.html' %} {% block content %}
 
-<h1>TO DO LIST PYTHON EDITION</h1>
-<a href="{% url 'create-task' %}">Create to do</a>
-<table>
-  <tr>
-    <th>TASK</th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="header_user">
+  {% if request.user.is_authenticated %}
+  <div class="name_user">{{ request.user }}</div>
+  <a href="{% url 'logout' %}">
+    <img
+      src="https://res.cloudinary.com/dm8swv5zy/image/upload/v1732131629/a48u7szazhwtarwybl6i.png"
+      alt="logout"
+    />
+  </a>
+  {% else %}
+  <a href="{% url 'login' %}">Log in</a>
+  {% endif %}
+</div>
 
-  {% for task in todos %}
+<div class="container_content">
+  <h1>TO DO LIST PYTHON EDITION</h1>
+  <a href="{% url 'create-task' %}" class="create_task">Create to do</a>
+  <form method="get" class="search_task">
+    <input
+      type="text"
+      name="search"
+      class="search"
+      placeholder="Search for your task"
+      value="{{task_search}}"
+    />
+    <button type="submit" class="bottone5">
+      <img
+        src="https://res.cloudinary.com/dm8swv5zy/image/upload/v1732132488/thmahakdkzsv8vte6ndy.png"
+        class="search_icon"
+      />
+    </button>
+  </form>
+  <table>
+    <tr>
+      <th>TASK</th>
+      <th></th>
+    </tr>
 
-  <tr>
-    <td>{{task.title}}</td>
-    <td><a href="{% url 'task' task.id %}"> Details </a></td>
-    <td><a href="{% url 'edit-task' task.id %}"> 🖌️ </a></td>
-    <td><a href="{% url 'delete-task' task.id %}"> ❌ </a></td>
-  </tr>
+    {% for task in todos %}
 
-  {% empty %}
-  <h3>YOU DON'T HAVE ANY TO DOS</h3>
+    <tr class="todo_row">
+      <td>{{task.title}}</td>
+      <td><a href="{% url 'edit-task' task.id %}"> 🖌️ </a></td>
+      <td><a href="{% url 'delete-task' task.id %}"> ❌ </a></td>
+    </tr>
 
-  {% endfor %}
-</table>
+    {% empty %}
+    <h3>YOU DON'T HAVE ANY TO DOS</h3>
+
+    {% endfor %}
+  </table>
+
+  {% endblock content %}
+</div>

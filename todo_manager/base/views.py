@@ -32,21 +32,27 @@ class RegisterPage(FormView):
         if user is not None:
             login(self.request, user)
         return super(RegisterPage, self).form_valid(form)
-    
+
     def get(self, *args, **kwargs):
         if self.request.user.is_authenticated:
             return redirect('pending')
         return super(RegisterPage, self).get(*args, **kwargs)
 
+
 class ListPending(LoginRequiredMixin, ListView):
     '''Pending tasks'''
     model = Task
     context_object_name = 'todos'
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['todos'] = context['todos'].filter(user=self.request.user)
         context['count'] = context['todos'].filter(complete = False)
+
+        task_search = self.request.GET.get('search') or ''
+        if task_search:
+            context['todos'] = context['todos'].filter(title__icontains= task_search)
+        context['task_search'] = task_search
         return context
 
 
@@ -65,7 +71,6 @@ class CreateTask(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(CreateTask, self).form_valid(form)
-
 
 
 class EditTask(LoginRequiredMixin, UpdateView):
