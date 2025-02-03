@@ -1,10 +1,15 @@
 {% extends 'base/principal.html' %} {% block content %}
-<h1>LOG IN</h1>
+<h1 class="title-login">LOG IN</h1>
 
-<form method="post">
+<form method="post" class="form-login">
   {% csrf_token %} {{form.as_p}}
-  <input type="submit" value="Enter" />
+  <input type="submit" value="Enter" class="enter" />
 </form>
 
-<p>Don't have an account yet?<a href="{% url 'register' %}">Register</a></p>
+<p class="register-link">
+  Don't have an account yet?
+  <a href="{% url 'register' %}" class="register">Register</a>
+</p>
 {% endblock content %}
+
+<style></style>

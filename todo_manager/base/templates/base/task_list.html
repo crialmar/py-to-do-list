@@ -32,9 +32,9 @@
       />
     </button>
   </form>
-  <table>
+  <table class="todo-list">
     <tr>
-      <th>TASK</th>
+      <th class="title-table">TASK</th>
       <th></th>
     </tr>
 
@@ -42,8 +42,12 @@
 
     <tr class="todo_row">
       <td>{{task.title}}</td>
-      <td><a href="{% url 'edit-task' task.id %}"> 🖌️ </a></td>
-      <td><a href="{% url 'delete-task' task.id %}"> ❌ </a></td>
+      <td>
+        <a href="{% url 'edit-task' task.id %}" class="edit-task"> 🖌️ </a>
+      </td>
+      <td>
+        <a href="{% url 'delete-task' task.id %}" class="delete-task"> ❌ </a>
+      </td>
     </tr>
 
     {% empty %}

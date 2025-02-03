@@ -17,7 +17,7 @@
     <style>
       body {
         font-family: "Raleway", serif;
-        background-image: linear-gradient(180deg, #854bb8 10%, #341847 90%);
+        background-image: radial-gradient(circle, #241438 10%, #0d041e 90%);
         /* background-color: rgb(60, 30, 117);
               opacity: 1;
               background-image: radial-gradient(
@@ -29,6 +29,11 @@
               background-position: 0px 0px, 29px 29px; */
         min-width: 320px;
         min-height: 100vh;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        color: aliceblue;
 
         .create_task {
           align-items: center;
@@ -71,11 +76,29 @@
           transition: all 0.5s;
         }
 
-        input {
+        .todo-list {
+          margin: 20px;
+          padding: 5px;
+          justify-self: center;
+          background-color: aqua;
+
+          .title-table {
+            font-size: 20px;
+            background-color: #854bb8;
+          }
+
+          .edit-task,
+          .delete-task {
+            text-decoration: none;
+            font-size: medium;
+            font-size: 20px;
+          }
+        }
+        /* input {
           margin: 20px 0 20px 0;
           padding: 5px;
           border-radius: 5px;
-        }
+        } */
 
         td {
           padding: 5px;
@@ -95,21 +118,17 @@
           }
         }
 
-        .container_content {
+        .container {
           width: 600px;
-          padding: 10px 0px 15px 0px;
+          padding: 15px;
           margin: 30px 0px;
-          place-items: center;
-          place-self: center;
+          align-items: center;
+          align-content: center;
           /* min-width: 320px;
                 min-height: 100vh; */
           border-radius: 15px;
-          background: rgba(255, 255, 255, 0.3);
-          -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+          background-color: rgba(22, 7, 29, 0.204);
           border: 1.5px solid rgba(209, 213, 219, 0.3);
-
-          /* From Uiverse.io by portseif */
 
           .search:hover,
           .search:focus {
@@ -122,14 +141,57 @@
             font-size: smaller;
           }
 
-          .bottone5 {
+          .form-login {
+            justify-self: center;
+          }
+
+          .title-login,
+          .register-link {
+            justify-self: center;
+
+            .register {
+              text-decoration: none;
+              color: #f3f3f3;
+              background-color: #f3f3f300;
+              border: 1px solid rgba(0, 0, 0, 0.1);
+              border-radius: 10px;
+              box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+              box-sizing: border-box;
+              cursor: pointer;
+              display: inline-flex;
+              padding: 6.5px;
+              justify-content: center;
+              line-height: 1.25;
+              transition: all 250ms;
+              user-select: none;
+              -webkit-user-select: none;
+              touch-action: manipulation;
+              vertical-align: baseline;
+              max-height: 10%;
+              width: auto;
+            }
+
+            .register:hover {
+              background-color: rgba(255, 255, 255, 0.068);
+            }
+          }
+
+          .enter {
+            justify-self: end;
+          }
+
+          .enter,
+          input {
+            font-family: "Raleway";
+            margin: 5px;
             align-items: center;
             background-color: #f3f3f3;
             border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
             box-sizing: border-box;
-            color: rgba(0, 0, 0, 0.85);
+            color: rgb(0, 0, 0);
+            font-weight: 450;
             cursor: pointer;
             display: inline-flex;
             padding: 6.5px;
@@ -144,18 +206,18 @@
             width: auto;
           }
 
-          .bottone5:hover,
-          .bottone5:focus {
+          .enter:hover,
+          .enter:focus {
             border: 1px solid #ec4ade;
             box-shadow: 0px 0px 0px 7px rgba(236, 74, 225, 0.2);
             background-color: white;
           }
 
-          .bottone5:hover {
+          .enter:hover {
             transform: translateY(-1px);
           }
 
-          .bottone5:active {
+          .enter:active {
             background-color: #f0f0f198;
             border: 2px solid #ec4ade;
             box-shadow: 0px 0px 0px 7px rgba(236, 74, 225, 0.2);
